@@ -1,10 +1,10 @@
 <script setup>
 import { ref, onMounted, onUnmounted, computed } from 'vue';
-import { useLanguage } from './assets/useLanguage';
-import { Button } from './ui/button';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from './ui/dropdown-menu';
+import { useLanguage } from '../../Components/assets/useLanguage';
+import { Button } from '../../Components/ui/button';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from '../../Components/ui/dropdown-menu';
 import GetStarted from './GetStarted.vue';
-import { cn } from './ui/utils';
+import { cn } from '../../Components/ui/utils';
 import {
   DialogRoot as Sheet,
   DialogTrigger as SheetTrigger,

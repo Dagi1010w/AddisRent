@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue';
-import { useLanguage } from './assets/useLanguage';
-import { Button } from './ui/button';
+import { useLanguage } from '../../Components/assets/useLanguage';
+import { Button } from '../../Components/ui/button';
 import { Home, Building, DollarSign, ShoppingCart, ArrowRight } from 'lucide-vue-next';
 
 const { t } = useLanguage();

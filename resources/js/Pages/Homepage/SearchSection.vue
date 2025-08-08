@@ -2,14 +2,14 @@
 // ... your entire <script setup> block remains unchanged ...
 // No logic changes are needed for this fix.
 import { ref, reactive, onMounted, onUnmounted, computed, watch } from 'vue';
-import { useLanguage } from './assets/useLanguage';
-import { Button } from './ui/button';
-import { Input } from './ui/input';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
-import { Switch } from './ui/switch';
-import { Label } from './ui/label';
-import { Card, CardContent } from './ui/card';
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from './ui/collapsible';
+import { useLanguage } from '../../Components/assets/useLanguage';
+import { Button } from '../../Components/ui/button';
+import { Input } from '../../Components/ui/input';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../../Components/ui/select';
+import { Switch } from '../../Components/ui/switch';
+import { Label } from '../../Components/ui/label';
+import { Card, CardContent } from '../../Components/ui/card';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '../../Components/ui/collapsible';
 import { Search, MapPin, Building2, DollarSign, Bed, Bath, Maximize, X, Filter, ChevronDown } from 'lucide-vue-next';
 
 const { t } = useLanguage();

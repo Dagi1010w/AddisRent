@@ -2,8 +2,8 @@
 import { provide } from 'vue';
 // 1. Import useStorage from @vueuse/core
 import { useStorage } from '@vueuse/core';
-import { translations } from './assets/translation'; // Corrected path
-import { languageKey } from './assets/useLanguage';
+import { translations } from '../../Components/assets/translation'; // Corrected path
+import { languageKey } from '../../Components/assets/useLanguage';
 
 // --- REACTIVE STATE using useStorage ---
 // **THE FIX**: These two lines replace your onMounted and watch hooks.

@@ -1,8 +1,8 @@
 <script setup>
 import { ref, computed } from 'vue';
-import { useLanguage } from './assets/useLanguage';
-import { Button } from './ui/button';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from './ui/dropdown-menu';
+import { useLanguage } from '../../Components/assets/useLanguage';
+import { Button } from '../../Components/ui/button';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '../../Components/ui/dropdown-menu';
 import { Scale, Globe, DollarSign } from 'lucide-vue-next';
 import ComparisonModal from './ComparsionModal.vue';
 

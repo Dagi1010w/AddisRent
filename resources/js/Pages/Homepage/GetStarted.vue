@@ -1,7 +1,7 @@
 <!-- File: GetStarted.vue -->
 <script setup>
 import { ref, reactive, computed } from 'vue';
-import { useLanguage } from './assets/useLanguage';
+import { useLanguage } from '../../Components/assets/useLanguage';
 
 // --- Direct Radix Imports ---
 import {
@@ -16,12 +16,12 @@ import {
 } from 'radix-vue';
 
 // Your other UI components are fine to use
-import { Button } from './ui/button';
-import { Input } from './ui/input';
-import { Label } from './ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
-import { cn } from './ui/utils';
+import { Button } from '../../Components/ui/button';
+import { Input } from '../../Components/ui/input';
+import { Label } from '../../Components/ui/label';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../../Components/ui/select';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '../../Components/ui/tabs';
+import { cn } from '../../Components/ui/utils';
 
 // Import lucide-vue-next icons
 import { UserPlus, LogIn, Mail, Lock, User, Phone, Users, TrendingUp, XIcon } from 'lucide-vue-next';

@@ -1,6 +1,6 @@
 <script setup>
 import { computed } from 'vue';
-import { useLanguage } from './assets/useLanguage'; // 1. Import language composable
+import { useLanguage } from '../../Components/assets/useLanguage'; // 1. Import language composable
 import {
   Dialog,
   DialogContent,
@@ -8,8 +8,8 @@ import {
   DialogFooter,
   DialogTitle,
   DialogDescription,
-} from './ui/dialog';
-import { Button } from './ui/button';
+} from '../../Components/ui/dialog';
+import { Button } from '../../Components/ui/button';
 import { Bed, Bath, Maximize, MapPin, Building, Armchair, Trash2 } from 'lucide-vue-next';
 
 // Activate composable

@@ -1,8 +1,8 @@
 <!-- File: src/components/FeaturedListings.vue -->
 <script setup>
 
-import { useLanguage } from './assets/useLanguage';
-import { Button } from './ui/button';
+import { useLanguage } from '../../Components/assets/useLanguage';
+import { Button } from '../../Components/ui/button';
 import PropertyCard from './PropertyCard.vue'; // Import our new reusable card
 
 // Define props received from App.vue

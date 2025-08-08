@@ -1,20 +1,19 @@
 <script setup>
 // 1. Import Vue functions and all necessary components
 import { ref, computed } from 'vue';
-import LanguageProvider from './LanguageProvider.vue';
-import NavgBar from './NavgBar.vue';
-import FloatingSidebar from './FloatingSidebar.vue';
-import SearchSection from './SearchSection.vue';
-import FeaturedListings from './FeaturedListings.vue';
-import ComparisonModal from './ComparsionModal.vue'; // Corrected typo from "Comparsion"
+import LanguageProvider from '@/Pages/Homepage/LanguageProvider.vue';
+import NavgBar from '@/Pages/Homepage/NavgBar.vue';
+import FloatingSidebar from '@/Pages/Homepage/FloatingSidebar.vue';
+import SearchSection from '@/Pages/Homepage/SearchSection.vue';
+import FeaturedListings from '@/Pages/Homepage/FeaturedListings.vue';
+import ComparisonModal from '@/Pages/Homepage/ComparsionModal.vue'; // Corrected typo from "Comparsion"
 
 // These components can be uncommented as you create them
- import ExploreCities from './ExploreCities.vue';
-import WhyChooseUs from './WhyChooseUs.vue';
-import CallToAction from './CallToAction.vue';
-import Footer from './Footer.vue';
-defineProps(['open'])
-defineEmits(['update:open'])
+ import ExploreCities from '@/Pages/Homepage/ExploreCities.vue';
+import WhyChooseUs from '@/Pages/Homepage/WhyChooseUs.vue';
+import CallToAction from '@/Pages/Homepage/CallToAction.vue';
+import Footer from '@/Pages/Homepage/Footer.vue';
+
 // 2. STATE MANAGEMENT
 // A master list of properties, now living in the top-level component.
 const properties = ref([

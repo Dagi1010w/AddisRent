@@ -1,9 +1,9 @@
 <script setup>
 import { computed } from 'vue';
-import { useLanguage } from './assets/useLanguage';
-import { Button } from './ui/button';
-import { Card, CardContent, CardFooter } from './ui/card';
-import { Badge } from './ui/badge';
+import { useLanguage } from '../../Components/assets/useLanguage';
+import { Button } from '../../Components/ui/button';
+import { Card, CardContent, CardFooter } from '../../Components/ui/card';
+import { Badge } from '../../Components/ui/badge';
 import { Heart, Scale, MapPin, Bed, Bath, Car, Maximize, Star, Clock } from 'lucide-vue-next';
 
 const props = defineProps({
