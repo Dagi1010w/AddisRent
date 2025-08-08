@@ -27,18 +27,41 @@ class ProfileController extends Controller
     /**
      * Update the user's profile information.
      */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
-    {
-        $request->user()->fill($request->validated());
+    public function update(ProfileUpdateRequest $request)
+{
+    $user = $request->user();
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
-        }
+    $data = $request->validated();
 
-        $request->user()->save();
-
-        return Redirect::route('profile.edit');
+    if (!empty($data['password'])) {
+        $data['password'] = bcrypt($data['password']);
+    } else {
+        unset($data['password']); // avoid overwriting password with null
     }
+
+    $user->fill($data);
+    
+    if ($user->isDirty('email')) {
+        $user->email_verified_at = null;
+    }
+    
+    $user->save();
+
+    // Update related profile
+    if ($user->type === 'person') {
+        $user->personProfile()->updateOrCreate([], [
+            'gender' => $data['gender'],
+        ]);
+    } elseif ($user->type === 'company') {
+        $user->companyProfile()->updateOrCreate([], [
+            'google_map_link' => $data['google_map_link'] ?? null,
+            'business_license_path' => $data['business_license_path'] ?? null,
+        ]);
+    }
+
+    return redirect()->route('profile.edit')->with('success', 'Profile updated successfully.');
+}
+
 
     /**
      * Delete the user's account.

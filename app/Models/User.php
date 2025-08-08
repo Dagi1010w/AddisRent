@@ -22,6 +22,12 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'phone_number',
+        'location_region',
+        'location_city',
+        'location_subcity',
+        'location_specific_area',
+        'type', // 'person' or 'company'
     ];
 
     /**
@@ -45,5 +51,18 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function personProfile()
+    {
+        return $this->hasOne(PersonProfile::class);
+    }
+
+    /**
+     * Relation to company profile (one to one).
+     */
+    public function companyProfile()
+    {
+        return $this->hasOne(CompanyProfile::class);
     }
 }

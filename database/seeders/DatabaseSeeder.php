@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Database\Seeders\AutoUserAndPropertySeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,9 +16,19 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
+         $this->call([
+        AutoUserAndPropertySeeder::class,
+    ]);
+
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
+            'phone_number' => '0912345678',
+            'location_region' => 'Addis Ababa',
+            'location_city' => 'Addis Ababa',
+            'location_subcity' => 'Bole',
+            'location_specific_area' => 'Airport',
+            'type' => 'person',
         ]);
     }
 }
