@@ -1,20 +1,20 @@
 <script setup>
 import { ref, computed } from 'vue';
-import { useLanguage } from '../../Components/assets/useLanguage';
-import { useTheme } from '../../Components/assets/useTheme';
-import { Button } from '../../Components/ui/button';
-import { Input } from '../../Components/ui/input';
-import { Separator } from '../../Components/ui/separator';
+import { useLanguage } from './assets/useLanguage';
+import { useTheme } from './assets/useTheme';
+import { Button } from './ui/button';
+import { Input } from './ui/input';
+import { Separator } from './ui/separator';
 // Import all necessary icons from lucide-vue-next
-import { 
-  Home, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, 
+import {
+  Home, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin,
   Youtube, Send, Heart, Star, Shield, Award, Users, TrendingUp,
   Sun, Moon
 } from 'lucide-vue-next';
 
 // Activate composables
 const { t } = useLanguage();
-const { isDark, toggleTheme } = useTheme();
+const { isLight, toggleTheme } = useTheme();
 
 // Local state for the newsletter form
 const email = ref("");
@@ -66,7 +66,7 @@ const stats = ref([
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
         <!-- Company Info -->
         <div class="lg:col-span-1">
-          <div 
+          <div
             v-motion
             :hovered="{ scale: 1.05 }"
             class="flex items-center space-x-3 mb-6 w-fit"
@@ -153,7 +153,7 @@ const stats = ref([
           <div class="text-sm text-gray-600 dark:text-gray-400">{{ t(stat.labelKey, stat.labelKey) }}</div>
         </div>
       </div>
-      
+
       <!-- Trust Indicators -->
       <Separator class="my-12" />
       <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2">

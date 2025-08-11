@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-import { useLanguage } from '../../Components/assets/useLanguage'; // Ensure path is correct
+import { useLanguage } from './assets/useLanguage'; // Ensure path is correct
 // 1. Import all necessary icons
 import { Shield, Zap, Lock, Users, CheckCircle, Star } from 'lucide-vue-next';
 
@@ -75,7 +75,7 @@ const additionalStats = ref([
           >
             <!-- Icon background with gradient -->
             <div class="absolute inset-0 bg-gradient-to-br from-orange-100 to-green-100 dark:from-orange-900/30 dark:to-green-900/30 rounded-2xl group-hover:from-orange-200 group-hover:to-green-200 dark:group-hover:from-orange-800/40 dark:group-hover:to-green-800/40 transition-all duration-300" />
-            
+
             <!-- Animated pulse ring -->
             <div
               v-motion
@@ -90,7 +90,7 @@ const additionalStats = ref([
               }"
               class="absolute inset-0 bg-gradient-to-br from-orange-400 to-green-500 rounded-2xl opacity-20"
             />
-            
+
             <!-- Icon -->
             <div class="relative flex items-center justify-center w-full h-full">
               <component :is="feature.icon" class="w-10 h-10 text-orange-500" />
@@ -100,7 +100,7 @@ const additionalStats = ref([
           <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">
             {{ t(feature.titleKey) }}
           </h3>
-          
+
           <p class="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
             {{ t(feature.descriptionKey) }}
           </p>
@@ -150,7 +150,7 @@ const additionalStats = ref([
                 <component :is="stat.icon" class="w-6 h-6 text-white" />
               </div>
             </div>
-            
+
             <div
               v-motion
               :initial="{ opacity: 0 }"
@@ -160,7 +160,7 @@ const additionalStats = ref([
             >
               {{ stat.value }}
             </div>
-            
+
             <p class="text-gray-600 dark:text-gray-300">
               {{ t(stat.labelKey) }}
             </p>

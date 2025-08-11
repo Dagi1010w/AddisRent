@@ -1,7 +1,7 @@
 <!-- File: GetStarted.vue -->
 <script setup>
 import { ref, reactive, computed } from 'vue';
-import { useLanguage } from '../../Components/assets/useLanguage';
+import { useLanguage } from './assets/useLanguage';
 
 // --- Direct Radix Imports ---
 import {
@@ -16,12 +16,12 @@ import {
 } from 'radix-vue';
 
 // Your other UI components are fine to use
-import { Button } from '../../Components/ui/button';
-import { Input } from '../../Components/ui/input';
-import { Label } from '../../Components/ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../../Components/ui/select';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '../../Components/ui/tabs';
-import { cn } from '../../Components/ui/utils';
+import { Button } from './ui/button';
+import { Input } from './ui/input';
+import { Label } from './ui/label';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
+import { cn } from './ui/utils';
 
 // Import lucide-vue-next icons
 import { UserPlus, LogIn, Mail, Lock, User, Phone, Users, TrendingUp, XIcon } from 'lucide-vue-next';
@@ -40,7 +40,7 @@ const handleSignup = async () => { /* ... unchanged ... */ };
 const userTypes = computed(() => [
   { value: "tenant", label: t('auth.tenant'), icon: User },
   { value: "landlord", label: t('auth.landlord'), icon: Users },
-  
+
 ]);
 
 const dialogDescription = computed(() => {
@@ -55,7 +55,7 @@ const dialogDescription = computed(() => {
     <DialogTrigger as-child>
       <slot />
     </DialogTrigger>
-    
+
     <DialogPortal>
       <!-- Dark Theme Edit: Added dark:bg-black/80 for a slightly stronger overlay in dark mode -->
       <DialogOverlay
@@ -71,8 +71,8 @@ const dialogDescription = computed(() => {
         <DialogTitle class="sr-only">{{ t('nav.getStarted') }}</DialogTitle>
         <DialogDescription class="sr-only">{{ dialogDescription }}</DialogDescription>
 
-        <!-- 
-          Visual Header 
+        <!--
+          Visual Header
           Dark Theme Edit: Changed gradient and text colors for dark mode.
         -->
         <div class="p-6 text-center border-b bg-gradient-to-br from-orange-50 to-green-50 dark:from-slate-900 dark:to-slate-800 dark:border-slate-800">
@@ -91,7 +91,7 @@ const dialogDescription = computed(() => {
               <TabsTrigger value="login" class="flex items-center space-x-2"><LogIn :size="16" /><span>{{ t('auth.signIn') }}</span></TabsTrigger>
               <TabsTrigger value="signup" class="flex items-center space-x-2"><UserPlus :size="16" /><span>{{ t('auth.signUp') }}</span></TabsTrigger>
             </TabsList>
-            
+
             <TabsContent value="login">
               <form @submit.prevent="handleLogin" class="space-y-4">
                 <div class="space-y-2">
@@ -148,7 +148,7 @@ const dialogDescription = computed(() => {
             </TabsContent>
           </Tabs>
         </div>
-        
+
         <DialogClose class="absolute top-4 right-4 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:outline-none">
           <XIcon class="h-4 w-4" />
           <span class="sr-only">Close</span>
