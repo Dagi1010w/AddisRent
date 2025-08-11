@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-import { useLanguage } from './assets/useLanguage'; // Ensure path is correct
+import { useLanguage } from '@/Components/assets/useLanguage'; // Ensure path is correct
 // 1. Import all necessary icons
 import { Shield, Zap, Lock, Users, CheckCircle, Star } from 'lucide-vue-next';
 

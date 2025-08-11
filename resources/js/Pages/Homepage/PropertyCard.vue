@@ -64,13 +64,7 @@ const furnishedText = computed(() => {
       </div>
 
       <div class="absolute top-3 right-3 flex flex-col gap-2">
-        <Button
-          variant="ghost" size="icon"
-          :class="['h-10 w-10 rounded-full bg-white/90 shadow-lg', isFavorite ? 'text-red-500' : 'text-gray-600 hover:text-red-500']"
-          @click="emit('toggleFavorite', property.id)"
-        >
-          <Heart :class="['h-5 w-5', isFavorite && 'fill-current']" />
-        </Button>
+        
         <Button
           variant="ghost" size="icon"
           :class="['h-10 w-10 rounded-full bg-white/90 shadow-lg', isInCompare ? 'text-blue-500' : 'text-gray-600 hover:text-blue-500']"

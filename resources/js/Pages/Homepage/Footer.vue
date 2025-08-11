@@ -1,10 +1,10 @@
 <script setup>
 import { ref, computed } from 'vue';
-import { useLanguage } from './assets/useLanguage';
-import { useTheme } from './assets/useTheme';
-import { Button } from './ui/button';
-import { Input } from './ui/input';
-import { Separator } from './ui/separator';
+import { useLanguage } from '@/Components/assets/useLanguage';
+import { useTheme } from '@/Components/assets/useTheme';
+import { Button } from '@/Components/ui/button';
+import { Input } from '@/Components/ui/input';
+import { Separator } from '@/Components/ui/separator';
 // Import all necessary icons from lucide-vue-next
 import {
   Home, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin,

@@ -1,8 +1,8 @@
-<script setup>
+@/Components/<script setup>
 import { provide } from 'vue';
 import { useStorage } from '@vueuse/core';
-import { translations } from './assets/translation';
-import { languageKey } from './assets/useLanguage';
+import { translations } from '@/Components/assets/translation';
+import { languageKey } from '@/Components/assets/useLanguage';
 
 const language = useStorage('language', 'en');
 const currency = useStorage('currency', 'ETB');
