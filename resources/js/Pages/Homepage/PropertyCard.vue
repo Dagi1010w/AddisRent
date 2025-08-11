@@ -1,10 +1,10 @@
 <script setup>
 import { computed } from 'vue';
-import { useLanguage } from '../../Components/assets/useLanguage';
-import { Button } from '../../Components/ui/button';
-import { Card, CardContent, CardFooter } from '../../Components/ui/card';
-import { Badge } from '../../Components/ui/badge';
-import { Heart, Scale, MapPin, Bed, Bath, Car, Maximize, Star, Clock } from 'lucide-vue-next';
+import { useLanguage } from './assets/useLanguage';
+import { Button } from './ui/button';
+import { Card, CardContent, CardFooter } from './ui/card';
+import { Badge } from './ui/badge';
+import { Scale, MapPin, Bed, Bath, Car, Maximize, Star, Clock } from 'lucide-vue-next';
 
 const props = defineProps({
   property: {
@@ -26,21 +26,18 @@ const { t, formatPrice, formatRelativeTime, language } = useLanguage();
 
 // --- Computed Properties for Display ---
 
-// FIX 1: Corrected case from TitleAm to titleAm
 const title = computed(() => {
   return language.value === 'am' && props.property.titleAm
     ? props.property.titleAm
-    : props.property.title; 
+    : props.property.title;
 });
 
-// FIX 1: Corrected case from LocationAm to locationAm
 const location = computed(() => {
   return language.value === 'am' && props.property.locationAm
     ? props.property.locationAm
     : props.property.location;
 });
 
-// FIX 2: Corrected key prefix to 'propertyType.'
 const propertyTypeText = computed(() => {
   if (!props.property?.type) return '';
   const key = props.property.type.toLowerCase().trim();
@@ -58,17 +55,24 @@ const furnishedText = computed(() => {
   <Card class="overflow-hidden hover:shadow-xl transition-all duration-300 group">
     <div class="relative">
       <img :src="property.image" :alt="title" class="w-full h-48 object-cover transition-transform group-hover:scale-105"/>
-      
+
       <div class="absolute top-3 left-3">
         <Badge variant="secondary" class="bg-black/70 text-white">{{ propertyTypeText }}</Badge>
       </div>
 
       <div class="absolute top-3 right-3 flex flex-col gap-2">
-        
+        <Button
+          variant="ghost" size="icon"
+          :class="['h-10 w-10 rounded-full bg-white/90 shadow-lg', isFavorite ? 'text-red-500' : 'text-gray-600 hover:text-red-500']"
+          @click="emit('toggleFavorite', property.id)"
+        >
+          <Heart :class="['h-5 w-5', isFavorite && 'fill-current']" />
+        </Button>
         <Button
           variant="ghost" size="icon"
           :class="['h-10 w-10 rounded-full bg-white/90 shadow-lg', isInCompare ? 'text-blue-500' : 'text-gray-600 hover:text-blue-500']"
           @click="emit('toggleCompare', property.id)"
+          aria-label="Toggle Compare"
         >
           <Scale :class="['h-5 w-5', isInCompare && 'fill-current']" />
         </Button>
@@ -87,7 +91,6 @@ const furnishedText = computed(() => {
         <span class="text-sm">{{ location }}</span>
       </div>
 
-      <!-- FIX 3: All hardcoded text below is now translated -->
       <div class="text-2xl font-bold text-orange-600 mb-4">
         {{ formatPrice(property.price) }}
         <span class="text-sm font-normal text-gray-500 ml-1">/{{ t('property.perMonth') }}</span>
@@ -107,7 +110,6 @@ const furnishedText = computed(() => {
           <span class="text-sm text-gray-600">{{ property.rating }} ({{ property.reviews }} {{ t('property.reviews') }})</span>
         </div>
       </div>
-      <!-- NOTE: You may need to add this translation key to your file -->
       <div v-if="isInCompare" class="mt-3 text-xs text-blue-600 font-medium">{{ t('compare.isAdded', 'Added to compare') }}</div>
     </CardContent>
 
