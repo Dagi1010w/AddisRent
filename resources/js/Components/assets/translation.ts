@@ -66,7 +66,7 @@ export const translations = {
     'nav.others.about': 'About Us',
     'nav.others.blog': 'Blog',
     'nav.others.contact': 'Contact Us',
-    
+
     // Search & Filters
     'search.placeholder': 'Search by location, property name, or keywords...',
     'search.properties': 'Search Properties',
@@ -90,7 +90,7 @@ export const translations = {
     'filter.parking': 'Parking',
     'filter.forRent': 'For Rent',
     'filter.forSale': 'For Sale',
-    
+
     // Property Types
     'propertyType.all': 'All Properties',
     'propertyType.apartment': 'Apartment',
@@ -103,13 +103,13 @@ export const translations = {
     'propertyType.studio': 'Studio',
     'propertyType.penthouse': 'Penthouse',
     'propertyType.condo': 'Condominium',
-    
+
     // Property Details
     'property.bedrooms': 'Bedrooms',
     'property.bathrooms': 'Bathrooms',
     'property.area': 'Area',
     'property.parking': 'Parking',
-    'property.furnished': 'Furnished',
+    'property.fully-furnished': 'Furnished',
     'property.semi-furnished': 'Semi-Furnished',
     'property.not-furnished': 'Unfurnished',
     'property.price': 'Price',
@@ -127,7 +127,7 @@ export const translations = {
     'property.interested': 'I\'m Interested',
     'property.share': 'Share',
     'property.report': 'Report',
-    
+
     // Hero Section
     'hero.title': 'Find Your Perfect Property in Ethiopia',
     'hero.subtitle': 'Discover and compare amazing places to live and work across Ethiopia',
@@ -135,7 +135,7 @@ export const translations = {
     'hero.stats.customers': 'Happy Customers',
     'hero.stats.cities': 'Cities',
     'hero.stats.rating': 'Rated Service',
-    
+
     // Featured Properties
     'featured.title': 'Featured Properties',
     'featured.subtitle': 'Browse all available properties sorted by the most recently listed',
@@ -144,7 +144,7 @@ export const translations = {
     'featured.removeFromFavorites': 'Remove from Favorites',
     'featured.addToCompare': 'Add to Compare',
     'featured.removeFromCompare': 'Remove from Compare',
-    
+
     // Cities
     'cities.title': 'Explore Cities',
     'cities.subtitle': 'Find properties in Ethiopia\'s most popular destinations',
@@ -155,7 +155,7 @@ export const translations = {
     'cities.mekelle': 'Mekelle',
     'cities.adama': 'Adama',
     'cities.hawassa': 'Hawassa',
-    
+
     // Why Choose Us
     'whyUs.title': 'Why Choose NerdsRent',
     'whyUs.subtitle': 'We make finding your perfect property simple and secure',
@@ -167,7 +167,7 @@ export const translations = {
     'whyUs.secure.desc': 'Safe and secure payment processing with multiple options',
     'whyUs.easy.title': 'Easy Process',
     'whyUs.easy.desc': 'Simple and straightforward property search and rental process',
-    
+
     // Call to Action
     'cta.title': 'Ready to Find Your Dream Property?',
     'cta.subtitle': 'Join thousands of satisfied customers who found their perfect home through our platform',
@@ -177,7 +177,7 @@ export const translations = {
     'cta.buy.title': 'Buy',
     'cta.sell.title': 'Sell',
     'cta.rentOut.title':'Rent Out',
-    
+
     // Footer
     'footer.company': 'Company',
     'footer.aboutUs': 'About Us',
@@ -212,10 +212,10 @@ export const translations = {
     'footer.stayUpdated': 'Stay Updated',
     'footer.newsletter':'News Letter',
     'footer.newsletter.desc':'Description',
-    'footer.followUs':'Follow us', 
+    'footer.followUs':'Follow us',
     'footer.copyright': 'Copyright',
     'footer.properties':'Properties',
-        
+
     // Authentication
     'auth.signIn': 'Sign In',
     'auth.signUp': 'Sign Up',
@@ -234,7 +234,7 @@ export const translations = {
     'auth.tenant': 'I\'m looking to rent',
     'auth.landlord': 'I want to list properties',
     'auth.agent': 'I\'m a real estate agent',
-    
+
     // Compare
     'compare.title': 'Compare Properties',
     'compare.subtitle': 'Compare selected properties side by side',
@@ -244,7 +244,8 @@ export const translations = {
     'compare.contactFor': 'Contact for',
     'compare.detailedComparison': 'Detailed Comparison',
     'compare.agentContact': 'Agent Contact',
-    
+    'compare.isAdded': 'Added',
+
     // Time
     'time.justNow': 'Just now',
     'time.minuteAgo': 'minute ago',
@@ -259,12 +260,12 @@ export const translations = {
     'time.monthsAgo': 'months ago',
     'time.yearAgo': 'year ago',
     'time.yearsAgo': 'years ago',
-    
+
     // Currency
     'currency.etb': 'Ethiopian Birr',
     'currency.usd': 'US Dollar',
     'currency.eur': 'Euro',
-    
+
     // Messages
     'message.loading': 'Loading...',
     'message.error': 'Something went wrong',
@@ -273,7 +274,7 @@ export const translations = {
     'message.success': 'Success!',
     'message.saved': 'Saved successfully',
     'message.deleted': 'Deleted successfully',
-    
+
     // Common
     'common.yes': 'Yes',
     'common.no': 'No',
@@ -300,7 +301,7 @@ export const translations = {
     'common.sort': 'Sort',
     'common.more': 'More',
     'common.less': 'Less',
-   
+
 },
   am: {
     // ... all your amharic translations ...
@@ -363,7 +364,7 @@ export const translations = {
     'nav.others.about': 'ስለ እኛ',
     'nav.others.blog': 'ብሎግ',
     'nav.others.contact': 'ያነጋግሩን',
-    
+
     // Search & Filters - ፍለጋ እና ማጣሪያዎች
     'search.placeholder': 'በቦታ፣ የንብረት ስም ወይም ቁልፍ ቃላት ፈልግ...',
     'search.properties': 'ንብረቶች ፈልግ',
@@ -387,7 +388,7 @@ export const translations = {
     'filter.parking': 'ቦታ ማቆሚያ',
     'filter.forRent': 'ለኪራይ',
     'filter.forSale': 'ለሽያጭ',
-    
+
     // Property Types - የንብረት አይነቶች
     'propertyType.all': 'ሁሉም ንብረቶች',
     'propertyType.apartment': 'አፓርታማ',
@@ -400,13 +401,13 @@ export const translations = {
     'propertyType.studio': 'ስቱዲዮ',
     'propertyType.penthouse': 'ፔንትሃውስ',
     'propertyType.condo': 'ኮንዶሚኒየም',
-    
+
     // Property Details - የንብረት ዝርዝሮች
     'property.bedrooms': 'የመኝታ ክፍሎች',
     'property.bathrooms': 'የመታጠቢያ ክፍሎች',
     'property.area': 'ስፋት',
     'property.parking': 'ቦታ ማቆሚያ',
-    'property.furnished': 'የታጠቀ',
+    'property.fully-furnished': 'የታጠቀ',
     'property.semi-furnished': 'ከፊል የታጠቀ',
     'property.not-furnished': 'ያልታጠቀ',
     'property.price': 'ዋጋ',
@@ -424,7 +425,7 @@ export const translations = {
     'property.interested': 'ፍላጎት አለኝ',
     'property.share': 'አካፍል',
     'property.report': 'ሪፖርት',
-    
+
     // Hero Section - ዋና ክፍል
     'hero.title': 'በኢትዮጵያ ውስጥ ፍጹም ንብረትዎን ያግኙ',
     'hero.subtitle': 'በኢትዮጵያ ውስጥ የሚኖሩ እና የሚሰሩ ቦታዎችን ማግኘት እና ማነፃፀር',
@@ -432,7 +433,7 @@ export const translations = {
     'hero.stats.customers': 'ደስተኛ ደንበኞች',
     'hero.stats.cities': 'ከተሞች',
     'hero.stats.rating': 'የተገመተ አገልግሎት',
-    
+
     // Featured Properties - ተመራጭ ንብረቶች
     'featured.title': 'Available Properties',
     'featured.subtitle': 'በቅርቡ የተዘረዘሩ ሁሉም ተገኝ ንብረቶችን ዝለይ',
@@ -441,7 +442,7 @@ export const translations = {
     'featured.removeFromFavorites': 'ከተወዳጅ አስወግድ',
     'featured.addToCompare': 'ለማወዳደር ጨምር',
     'featured.removeFromCompare': 'ከማወዳደሪያ አስወግድ',
-    
+
     // Cities - ከተሞች
     'cities.title': 'ከተሞችን ያስሱ',
     'cities.subtitle': 'በኢትዮጵያ በጣም ተወዳጅ በሆኑ አካባቢዎች ንብረቶችን ያግኙ',
@@ -452,7 +453,7 @@ export const translations = {
     'cities.mekelle': 'መቐለ',
     'cities.adama': 'አዳማ',
     'cities.hawassa': 'ሐዋሳ',
-    
+
     // Why Choose Us - ለምን እኛን ይመርጡ
     'whyUs.title': 'ለምን አዲስ ኪራይ ይምረጡ',
     'whyUs.subtitle': 'ፍጹሙን ንብረት ማግኘት ቀላል እና ደህንነቱ የተጠበቀ እናደርጋለን',
@@ -464,7 +465,7 @@ export const translations = {
     'whyUs.secure.desc': 'ከበርካታ አማራጮች ጋር ደህንነቱ የተጠበቀ የክፍያ ሂደት',
     'whyUs.easy.title': 'ቀላል ሂደት',
     'whyUs.easy.desc': 'ቀላል እና ቀጥተኛ የንብረት ፍለጋ እና የኪራይ ሂደት',
-    
+
     // Call to Action - የድርጊት ጥሪ
     'cta.title': 'የህልምዎን ንብረት ለማግኘት ዝግጁ ኖት?',
     'cta.subtitle': 'በእኛ መድረክ በኩል ፍጹሙን ቤታቸውን ያገኙ በሺዎች የሚቆጠሩ ረክተው የተፈፀሙ ደንበኞችን ይቀላቀሉ',
@@ -474,7 +475,7 @@ export const translations = {
     'cta.rentOut.title':'ንብረትዎን ይዘርዝሩ',
     'cta.buy.title': 'ግዢ',
     'cta.sell.title': 'ሽያጭ',
-    
+
     // Footer - ታችኛ ክፍል
     'footer.company': 'ኩባንያ',
     'footer.aboutUs': 'ስለ እኛ',
@@ -509,9 +510,9 @@ export const translations = {
     'footer.stayUpdated': 'ወቅታዊ ቆይታ',
     'footer.newsletter':'የዜና መጽሔት',
     'footer.newsletter.desc':'መግለጫ',
-    'footer.followUs':'ተከተሉን', 
+    'footer.followUs':'ተከተሉን',
     'footer.copyright': 'የቅጂ መብት',
-    'footer.properties': 'ባህሪያት',  
+    'footer.properties': 'ባህሪያት',
     // Authentication - ማረጋገጫ
     'auth.signIn': 'ግባ',
     'auth.signUp': 'መዝግብ',
@@ -530,7 +531,7 @@ export const translations = {
     'auth.tenant': 'ለመከራየት እፈልጋለሁ',
     'auth.landlord': 'ንብረቶችን መዘርዘር እፈልጋለሁ',
     'auth.agent': 'የሪል እስቴት ወኪል ነኝ',
-    
+
     // Compare - አወዳድር
     'compare.title': 'የንብረት ንጽጽር',
     'compare.subtitle': 'የተመረጡ ንብረቶችን ያወዳድሩ',
@@ -540,7 +541,8 @@ export const translations = {
     'compare.contactFor': 'ያነጋግሩ ለ',
     'compare.detailedComparison': 'ዝርዝር ንጽጽር',
     'compare.agentContact': 'የወኪል መገናኛ',
-    
+    'compare.isAdded': 'በንፅፅሩ ውስጥ ተካቷል',
+
     // Time - ጊዜ
     'time.justNow': 'አሁን ነው',
     'time.minuteAgo': 'ደቂቃ በፊት',
@@ -555,12 +557,12 @@ export const translations = {
     'time.monthsAgo': 'ወራት በፊት',
     'time.yearAgo': 'አመት በፊት',
     'time.yearsAgo': 'አመታት በፊት',
-    
+
     // Currency - ገንዘብ
     'currency.etb': 'የኢትዮጵያ ብር',
     'currency.usd': 'የአሜሪካ ዶላር',
     'currency.eur': 'ዩሮ',
-    
+
     // Messages - መልዕክቶች
     'message.loading': 'እየጫነ...',
     'message.error': 'ችግር ተፈጥሯል',
@@ -569,7 +571,7 @@ export const translations = {
     'message.success': 'ተሳክቷል!',
     'message.saved': 'በተሳካ ሁኔታ ተቀምጧል',
     'message.deleted': 'በተሳካ ሁኔታ ተሰርዟል',
-    
+
     // Common - የተለመዱ
     'common.yes': 'አዎ',
     'common.no': 'አይ',
@@ -595,6 +597,7 @@ export const translations = {
     'common.filter': 'አጣራ',
     'common.sort': 'ደርድር',
     'common.more': 'የበለጠ',
-    'common.less': 'ያነሰ',   
+    'common.less': 'ያነሰ',
+
 }
 };
