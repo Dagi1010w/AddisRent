@@ -8,10 +8,10 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Inertia\Inertia;
 use Inertia\Response;
+use Illuminate\Validation\Rule;
 
 class RegisteredUserController extends Controller
 {
@@ -30,6 +30,9 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        // Check if the email being registered is admin@example.com
+        $isAdminEmail = strtolower($request->input('email')) === 'admin@example.com';
+
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|lowercase|email|max:255|unique:'.User::class,
@@ -40,9 +43,20 @@ class RegisteredUserController extends Controller
             'location_subcity' => 'required|string|max:255',
             'location_specific_area' => 'nullable|string|max:255',
             'type' => 'required|in:person,company',
+            // preference is nullable ONLY if email is admin@example.com
+            'preference' => [
+    // Rule #1: Conditional Exclusion
+    Rule::excludeIf($request->input('email') === 'admin@example.com'),
+    
+    // Rule #2: Required (for everyone else)
+    'required',
+    
+    // Rule #3: Must be one of the specified values (for everyone else)
+    Rule::in(['lister', 'seeker']), 
+],
 
             // Person-specific
-            'gender' => $request->type === 'person' ? 'required|in:male,female,other' : 'nullable',
+            'gender' => $request->input('type') === 'person' ? 'required|in:male,female,other' : 'nullable',
 
             // Company-specific
             'google_map_link' => 'nullable|url',
@@ -59,6 +73,14 @@ class RegisteredUserController extends Controller
         $user->location_subcity = $validated['location_subcity'];
         $user->location_specific_area = $validated['location_specific_area'] ?? null;
         $user->type = $validated['type'];
+
+        // Assign preference only if not admin email and preference present
+        if (!$isAdminEmail && isset($validated['preference'])) {
+            $user->preference = $validated['preference'];
+        } else {
+            $user->preference = null;
+        }
+
         $user->save();
 
         if ($user->type === 'person') {

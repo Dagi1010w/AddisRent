@@ -18,6 +18,7 @@ return new class extends Migration
         $table->string('location_subcity');
         $table->string('location_specific_area')->nullable();
         $table->enum('type', ['person', 'company']);
+        $table->enum('preference', ['tenant', 'buyer', 'seller', 'lessor']);
     });
     }
 
