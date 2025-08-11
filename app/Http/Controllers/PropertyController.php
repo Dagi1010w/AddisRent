@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Property;
 use Illuminate\Support\Facades\Auth;
+use Inertia\Inertia;
 
 class PropertyController extends Controller
 {
@@ -41,9 +42,18 @@ class PropertyController extends Controller
     return redirect()->route('properties.index')->with('success', 'Property created successfully.');
 }
 
-public function Show($id){
+public function show()
+    {
+        $properties = Property::all();
 
-}
+
+        return Inertia::render('Home', [
+            'properties' => $properties
+        ]);
+    }
+
+
+
 
     public function update(Request $request, $id)
 {

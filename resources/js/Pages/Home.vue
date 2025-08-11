@@ -14,13 +14,9 @@ import WhyChooseUs from '@/Pages/Homepage/WhyChooseUs.vue';
 import CallToAction from '@/Pages/Homepage/CallToAction.vue';
 import Footer from '@/Pages/Homepage/Footer.vue';
 
-const properties = ref([
-  { id: 1, image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=2070&auto=format&fit=crop', title: 'Modern Apartment in City Center', titleAm: 'ዘመናዊ አፓርታማ በከተማ መሃል', location: 'New York, USA', locationAm: 'ኒው ዮርክ፣ አሜሪካ', price: 3500, bedrooms: 2, bathrooms: 2, area: 120, type: 'Apartment', furnished: 'Fully Furnished', listedDate: '2025-08-01T12:00:00Z', rating: 4.8, reviews: 24 },
-  { id: 2, image: 'https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=2070&auto=format&fit=crop', title: 'Spacious Family House', titleAm: 'ሰፊ የቤተሰብ ቤት', location: 'London, UK', locationAm: 'ለንደን፣ እንግሊዝ', price: 5500, bedrooms: 4, bathrooms: 3, area: 250, type: 'House', furnished: 'Semi-Furnished', listedDate: '2025-07-28T10:00:00Z', rating: 4.9, reviews: 45 },
-  { id: 3, image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop', title: 'Cozy Studio Loft', titleAm: 'ምቹ ስቱዲዮ ሎፍት', location: 'Paris, France', locationAm: 'ፓሪስ፣ ፈረንሳይ', price: 2800, bedrooms: 1, bathrooms: 1, area: 60, type: 'Studio', furnished: 'Not Furnished', listedDate: '2025-08-05T14:30:00Z', rating: 4.7, reviews: 18 },
-  { id: 4, image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop', title: 'Luxury Penthouse', titleAm: 'ውብ ፔንትሀውስ', location: 'Tokyo, Japan', locationAm: 'ቶኪዮ፣ ጃፓን', price: 12000, bedrooms: 3, bathrooms: 3, area: 300, type: 'Penthouse', furnished: 'Fully Furnished', listedDate: '2025-08-06T18:00:00Z', rating: 5.0, reviews: 31 },
-  { id: 5, image: 'https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?q=80&w=2070&auto=format&fit=crop', title: 'Charming Suburban Home', titleAm: 'ማራኪ የከተማ ዳር ቤት', location: 'Sydney, Australia', locationAm: 'ሲድኒ፣ አውስትራሊያ', price: 4500, bedrooms: 3, bathrooms: 2, area: 180, type: 'House', furnished: 'Not Furnished', listedDate: '2025-07-20T09:00:00Z', rating: 4.8, reviews: 52 },
-]);
+const props = defineProps({
+  properties: { type: Array, required: true },
+});
 
 const favoriteProperties = ref(new Set([1, 3, 5]));
 const compareProperties = ref(new Set());

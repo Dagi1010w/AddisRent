@@ -5,6 +5,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\PropertySearchController;
+use App\Http\Controllers\PropertyController;
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -25,11 +26,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/home', function () {
-    return Inertia::render('Home');
-});
+
 
 Route::get('/properties/search', [PropertySearchController::class, 'search'])->name('properties.search');
+
+Route::get('/properties', [PropertyController::class, 'show'])->name('properties.show');
+
+Route::get('/home', [PropertyController::class, 'Show'])->name('home');
 
 
 require __DIR__.'/auth.php';
