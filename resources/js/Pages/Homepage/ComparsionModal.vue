@@ -111,7 +111,7 @@ const removeProperty = (id) => {
                   :key="property.id + '-' + field.key"
                   class="border border-gray-300 dark:border-gray-700 p-2 text-center text-gray-800 dark:text-gray-200"
                 >
-                {{ property[field.key] }}
+                  {{ property[field.key] }}
                 </td>
               </tr>
             </tbody>

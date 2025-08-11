@@ -1,7 +1,7 @@
 <!-- File: src/components/FeaturedListings.vue -->
 <script setup>
-import { useLanguage } from '@/Components/assets/useLanguage';
-import { Button } from '@/Components/ui/button';
+import { useLanguage } from './assets/useLanguage';
+import { Button } from './ui/button';
 import PropertyCard from './PropertyCard.vue';
 
 const props = defineProps({
@@ -33,10 +33,10 @@ const { t } = useLanguage();
           v-for="property in properties"
           :key="property.id"
           :property="property"
-        
+
           :is-in-compare="compareProperties.has(property.id)"
           @toggle-compare="onToggleCompare"
-        
+
         />
       </div>
 
