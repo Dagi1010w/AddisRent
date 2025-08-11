@@ -6,7 +6,7 @@ import NavgBar from '@/Pages/Homepage/NavgBar.vue';
 import FloatingSidebar from '@/Pages/Homepage/FloatingSidebar.vue';
 import SearchSection from '@/Pages/Homepage/SearchSection.vue';
 import FeaturedListings from '@/Pages/Homepage/FeaturedListings.vue';
-import ComparisonModal from '@/Pages/Homepage/ComparsionModal.vue'; // Corrected typo from "Comparsion"
+import ComparsionModal from '@/Pages/Homepage/ComparsionModal.vue';
 
 // These components can be uncommented as you create them
  import ExploreCities from '@/Pages/Homepage/ExploreCities.vue';

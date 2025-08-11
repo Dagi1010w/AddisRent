@@ -11,7 +11,7 @@ import { Scale, Globe, DollarSign } from 'lucide-vue-next';
 import { useLanguage } from '@/Components/assets/useLanguage';
 
 const props = defineProps({
-  compareProperties: { type: [Set, Array], required: true },
+  compareProperties: { type: Set, required: true },
   allProperties: { type: Array, required: true },
 });
 
