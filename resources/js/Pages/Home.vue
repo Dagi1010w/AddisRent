@@ -14,10 +14,7 @@ import WhyChooseUs from '@/Pages/Homepage/WhyChooseUs.vue';
 import CallToAction from '@/Pages/Homepage/CallToAction.vue';
 import Footer from '@/Pages/Homepage/Footer.vue';
 
-// 2. STATE MANAGEMENT
-// A master list of properties, now living in the top-level component.
 const properties = ref([
-  // Using detailed mock data that child components expect
   { id: 1, image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=2070&auto=format&fit=crop', title: 'Modern Apartment in City Center', titleAm: 'ዘመናዊ አፓርታማ በከተማ መሃል', location: 'New York, USA', locationAm: 'ኒው ዮርክ፣ አሜሪካ', price: 3500, bedrooms: 2, bathrooms: 2, area: 120, type: 'Apartment', furnished: 'Fully Furnished', listedDate: '2025-08-01T12:00:00Z', rating: 4.8, reviews: 24 },
   { id: 2, image: 'https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=2070&auto=format&fit=crop', title: 'Spacious Family House', titleAm: 'ሰፊ የቤተሰብ ቤት', location: 'London, UK', locationAm: 'ለንደን፣ እንግሊዝ', price: 5500, bedrooms: 4, bathrooms: 3, area: 250, type: 'House', furnished: 'Semi-Furnished', listedDate: '2025-07-28T10:00:00Z', rating: 4.9, reviews: 45 },
   { id: 3, image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop', title: 'Cozy Studio Loft', titleAm: 'ምቹ ስቱዲዮ ሎፍት', location: 'Paris, France', locationAm: 'ፓሪስ፣ ፈረንሳይ', price: 2800, bedrooms: 1, bathrooms: 1, area: 60, type: 'Studio', furnished: 'Not Furnished', listedDate: '2025-08-05T14:30:00Z', rating: 4.7, reviews: 18 },
@@ -26,18 +23,18 @@ const properties = ref([
 ]);
 
 const favoriteProperties = ref(new Set([1, 3, 5]));
-const compareProperties = ref(new Set([1, 3])); // This Set only stores the IDs
+const compareProperties = ref(new Set());
+
 const userType = ref(null);
-const isCompareModalOpen = ref(false); // State to control the comparison modal
 
-// A computed property that reactively provides the FULL property objects for comparison
-const propertiesToCompare = computed(() => {
-  return Array.from(compareProperties.value) // Convert the Set of IDs to an array
-    .map(id => properties.value.find(p => p.id === id)) // Find the full object for each ID
-    .filter(Boolean); // Clean up any potential 'undefined' results
-});
+const propertiesToCompare = computed(() =>
+  Array.from(compareProperties.value)
+    .map(id => properties.value.find(p => p.id === id))
+    .filter(Boolean)
+);
 
-// 3. HANDLER METHODS
+const isCompareModalOpen = ref(false);
+
 const handleToggleFavorite = (propertyId) => {
   const newFavorites = new Set(favoriteProperties.value);
   if (newFavorites.has(propertyId)) newFavorites.delete(propertyId);
@@ -49,20 +46,14 @@ const handleToggleCompare = (propertyId) => {
   const newCompare = new Set(compareProperties.value);
   if (newCompare.has(propertyId)) {
     newCompare.delete(propertyId);
-  } else if (newCompare.size < 2) {
+  } else if (newCompare.size < 4) {
     newCompare.add(propertyId);
   } else {
-    // To maintain a max of 2, remove the oldest and add the new one
     const firstProperty = Array.from(newCompare)[0];
     newCompare.delete(firstProperty);
     newCompare.add(propertyId);
   }
   compareProperties.value = newCompare;
-
-  // Open the modal if there are items to compare
-  if (compareProperties.value.size > 0) {
-    isCompareModalOpen.value = true;
-  }
 };
 
 const handleRemoveFromCompare = (propertyId) => {
@@ -73,7 +64,14 @@ const handleRemoveFromCompare = (propertyId) => {
 
 const handleClearCompare = () => {
   compareProperties.value = new Set();
-  isCompareModalOpen.value = false; // Also close the modal when clearing
+};
+
+const handleOpenCompare = () => {
+  if (compareProperties.value.size > 0) {
+    isCompareModalOpen.value = true;
+  } else {
+    alert('Add properties to compare first!');
+  }
 };
 
 const handleUserAuthenticated = (type) => {
@@ -87,18 +85,17 @@ const handleUserAuthenticated = (type) => {
     <div class="min-h-screen bg-background">
       <navg-bar @authenticated="handleUserAuthenticated" />
 
-      <!-- Pass the detailed objects to the sidebar and listen for the open event -->
       <floating-sidebar
-        :compare-properties="propertiesToCompare"
-        @remove-from-compare="handleRemoveFromCompare"
-        @clear-compare="handleClearCompare"
-        @open-compare-modal="isCompareModalOpen = true"
+        :compare-properties="compareProperties"
+        :all-properties="properties"
+        @removeFromCompare="handleRemoveFromCompare"
+        @clearCompare="handleClearCompare"
+        @openCompare="handleOpenCompare"
       />
 
       <search-section />
 
       <main>
-        <!-- Pass the master properties list down to FeaturedListings -->
         <featured-listings
           :properties="properties"
           :favorite-properties="favoriteProperties"
@@ -106,17 +103,16 @@ const handleUserAuthenticated = (type) => {
           @toggle-favorite="handleToggleFavorite"
           @toggle-compare="handleToggleCompare"
         />
-          <explore-cities />
-          <why-choose-us />
-          <call-to-action />
 
+        <explore-cities />
+        <why-choose-us />
+        <call-to-action />
       </main>
 
       <Footer />
 
-      <!-- Add the ComparisonModal to the template and bind its state and events -->
-      <comparison-modal
-        :v-model:open="isCompareModalOpen"
+      <ComparsionModal
+        v-model:open="isCompareModalOpen"
         :properties-to-compare="propertiesToCompare"
         @remove-from-compare="handleRemoveFromCompare"
         @clear-compare="handleClearCompare"
@@ -126,11 +122,10 @@ const handleUserAuthenticated = (type) => {
 </template>
 
 <style>
-/* Global styles */
 .bg-background {
   background-color: #f8fafc;
 }
 body {
-  font-family: 'Inter', sans-serif; /* A more modern font choice */
+  font-family: 'Inter', sans-serif;
 }
 </style>
