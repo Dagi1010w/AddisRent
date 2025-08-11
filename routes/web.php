@@ -8,7 +8,7 @@ use App\Http\Controllers\PropertySearchController;
 use App\Http\Controllers\PropertyController;
 
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
+    return Inertia::render('Home', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,

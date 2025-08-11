@@ -3,8 +3,8 @@ import { ref, onMounted, onUnmounted, computed } from 'vue';
 import { useLanguage } from '../../Components/assets/useLanguage';
 import { Button } from '../../Components/ui/button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from '../../Components/ui/dropdown-menu';
-import GetStarted from './GetStarted.vue';
 import { cn } from '../../Components/ui/utils';
+import { Link } from '@inertiajs/vue3';
 import {
   DialogRoot as Sheet,
   DialogTrigger as SheetTrigger,
@@ -187,13 +187,21 @@ const othersOptions = computed(() => [
         </div>
 
         <div class="flex items-center space-x-4">
-          <div v-if="!isLoggedIn">
-             <get-started @authenticated="handleUserAuthenticated">
-                <Button class="font-medium">
-                  {{ t('nav.getStarted') }}
-                </Button>
-              </get-started>
-          </div>
+          <div v-if="!isLoggedIn" class="p-6 border-t">
+                    <Link
+                                :href="route('login')"
+                                class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                            >
+                                Login
+                            </Link>
+
+                            <Link
+                                :href="route('register')"
+                                class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                            >
+                                Register
+                            </Link>
+                  </div>
           <div v-else>
             <!-- User profile dropdown will go here -->
           </div>
@@ -243,11 +251,20 @@ const othersOptions = computed(() => [
                     </a>
                   </div>
                   <div v-if="!isLoggedIn" class="p-6 border-t">
-                    <get-started @authenticated="handleUserAuthenticated">
-                      <Button class="w-full">
-                        {{ t('nav.getStarted') }}
-                      </Button>
-                    </get-started>
+                    <Link
+                                :href="route('login')"
+                                class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                            >
+                                Login
+                            </Link>
+
+                            <Link
+                                v-if="canRegister"
+                                :href="route('register')"
+                                class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                            >
+                                Register
+                            </Link>
                   </div>
                 </div>
               </SheetContentRadix>

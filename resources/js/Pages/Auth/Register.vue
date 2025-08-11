@@ -1,162 +1,128 @@
 <script setup>
-import GuestLayout from '@/Layouts/GuestLayout.vue';
-import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
-import TextInput from '@/Components/TextInput.vue';
-import { Head, Link, useForm } from '@inertiajs/vue3';
+import { ref } from "vue";
+import { Head, Link, useForm } from "@inertiajs/vue3";
 
 const form = useForm({
-    name: '',
-    email: '',
-    password: '',
-    password_confirmation: '',
+    name: "",
+    email: "",
+    password: "",
+    password_confirmation: "",
+    phone_number: "",
+    location_region: "",
+    location_city: "",
+    location_subcity: "",
+    location_specific_area: "",
+    type: "person",
+    gender: "",
+    google_map_link: "",
+    business_license_path: null,
 });
 
 const submit = () => {
-    form.post(route('register'), {
-        onFinish: () => form.reset('password', 'password_confirmation'),
+    form.post(route("register"), {
+        forceFormData: true, // needed for file upload
+        
     });
 };
 </script>
 
 <template>
-    <GuestLayout>
-        <Head title="Register" />
+    <Head title="Register" />
 
-        <div
-            class="max-w-md mx-auto bg-background dark:bg-slate-950 border dark:border-slate-800 rounded-lg shadow-lg overflow-hidden"
-        >
-            <!-- Visual Header (matches GetStarted) -->
-            <div
-                class="p-6 text-center border-b bg-gradient-to-br from-orange-50 to-green-50 dark:from-slate-900 dark:to-slate-800 dark:border-slate-800"
-            >
-                <div
-                    class="w-16 h-16 bg-gradient-to-br from-orange-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-8 w-8 text-white"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        stroke-width="2"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"
-                        />
-                        <circle cx="8.5" cy="7" r="4" />
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M20 8v6M23 11h-6"
-                        />
-                    </svg>
-                </div>
-                <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-50">
-                    Create Account
-                </h2>
-                <p class="text-gray-600 mt-2 dark:text-gray-400">
-                    Start your journey with personalized property recommendations.
-                </p>
+    <div class="max-w-md mx-auto mt-10 bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
+        <h1 class="text-2xl font-bold mb-4">Register</h1>
+
+        <form @submit.prevent="submit" enctype="multipart/form-data">
+            <!-- Name -->
+            <div class="mb-4">
+                <label class="block font-medium mb-1">Name</label>
+                <input v-model="form.name" type="text" class="w-full border rounded p-2" />
+                <div v-if="form.errors.name" class="text-red-500 text-sm">{{ form.errors.name }}</div>
             </div>
 
-            <!-- Form Content -->
-            <form
-                @submit.prevent="submit"
-                class="p-6 space-y-4"
-            >
-                <div class="space-y-2">
-                    <InputLabel
-                        for="name"
-                        value="Name"
-                        class="flex items-center space-x-2 text-slate-700 dark:text-slate-400"
-                    />
-                    <TextInput
-                        id="name"
-                        type="text"
-                        class="h-11 w-full"
-                        v-model="form.name"
-                        required
-                        autofocus
-                        autocomplete="name"
-                    />
-                    <InputError class="mt-1 text-sm text-red-500" :message="form.errors.name" />
-                </div>
+            <!-- Email -->
+            <div class="mb-4">
+                <label class="block font-medium mb-1">Email</label>
+                <input v-model="form.email" type="email" class="w-full border rounded p-2" />
+                <div v-if="form.errors.email" class="text-red-500 text-sm">{{ form.errors.email }}</div>
+            </div>
 
-                <div class="space-y-2">
-                    <InputLabel
-                        for="email"
-                        value="Email"
-                        class="flex items-center space-x-2 text-slate-700 dark:text-slate-400"
-                    />
-                    <TextInput
-                        id="email"
-                        type="email"
-                        class="h-11 w-full"
-                        v-model="form.email"
-                        required
-                        autocomplete="username"
-                    />
-                    <InputError class="mt-1 text-sm text-red-500" :message="form.errors.email" />
-                </div>
+            <!-- Phone -->
+            <div class="mb-4">
+                <label class="block font-medium mb-1">Phone Number</label>
+                <input v-model="form.phone_number" type="text" class="w-full border rounded p-2" />
+                <div v-if="form.errors.phone_number" class="text-red-500 text-sm">{{ form.errors.phone_number }}</div>
+            </div>
 
-                <div class="space-y-2">
-                    <InputLabel
-                        for="password"
-                        value="Password"
-                        class="flex items-center space-x-2 text-slate-700 dark:text-slate-400"
-                    />
-                    <TextInput
-                        id="password"
-                        type="password"
-                        class="h-11 w-full"
-                        v-model="form.password"
-                        required
-                        autocomplete="new-password"
-                    />
-                    <InputError class="mt-1 text-sm text-red-500" :message="form.errors.password" />
+            <!-- Location Fields -->
+            <div class="grid grid-cols-2 gap-2 mb-4">
+                <div>
+                    <label class="block font-medium mb-1">Region</label>
+                    <input v-model="form.location_region" type="text" class="w-full border rounded p-2" />
                 </div>
-
-                <div class="space-y-2">
-                    <InputLabel
-                        for="password_confirmation"
-                        value="Confirm Password"
-                        class="flex items-center space-x-2 text-slate-700 dark:text-slate-400"
-                    />
-                    <TextInput
-                        id="password_confirmation"
-                        type="password"
-                        class="h-11 w-full"
-                        v-model="form.password_confirmation"
-                        required
-                        autocomplete="new-password"
-                    />
-                    <InputError
-                        class="mt-1 text-sm text-red-500"
-                        :message="form.errors.password_confirmation"
-                    />
+                <div>
+                    <label class="block font-medium mb-1">City</label>
+                    <input v-model="form.location_city" type="text" class="w-full border rounded p-2" />
                 </div>
-
-                <div class="flex items-center justify-between pt-4">
-                    <Link
-                        :href="route('login')"
-                        class="text-sm text-gray-600 underline hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200"
-                    >
-                        Already registered?
-                    </Link>
-
-                    <PrimaryButton
-                        class="h-11 px-6 bg-gradient-to-br from-orange-500 to-green-600 hover:opacity-90 transition-colors"
-                        :class="{ 'opacity-25': form.processing }"
-                        :disabled="form.processing"
-                    >
-                        Register
-                    </PrimaryButton>
+                <div>
+                    <label class="block font-medium mb-1">Subcity</label>
+                    <input v-model="form.location_subcity" type="text" class="w-full border rounded p-2" />
                 </div>
-            </form>
-        </div>
-    </GuestLayout>
+                <div>
+                    <label class="block font-medium mb-1">Specific Area</label>
+                    <input v-model="form.location_specific_area" type="text" class="w-full border rounded p-2" />
+                </div>
+            </div>
+
+            <!-- Type -->
+            <div class="mb-4">
+                <label class="block font-medium mb-1">Type</label>
+                <select v-model="form.type" class="w-full border rounded p-2">
+                    <option value="person">Person</option>
+                    <option value="company">Company</option>
+                </select>
+            </div>
+
+            <!-- If Person -->
+            <div v-if="form.type === 'person'" class="mb-4">
+                <label class="block font-medium mb-1">Gender</label>
+                <select v-model="form.gender" class="w-full border rounded p-2">
+                    <option value="">Select</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+
+            <!-- If Company -->
+            <div v-if="form.type === 'company'">
+                <div class="mb-4">
+                    <label class="block font-medium mb-1">Google Map Link</label>
+                    <input v-model="form.google_map_link" type="url" class="w-full border rounded p-2" />
+                </div>
+                <div class="mb-4">
+                    <label class="block font-medium mb-1">Business License (PDF)</label>
+                    <input type="file" @change="e => form.business_license_path = e.target.files[0]" class="w-full border rounded p-2" />
+                </div>
+            </div>
+
+            <!-- Password -->
+            <div class="mb-4">
+                <label class="block font-medium mb-1">Password</label>
+                <input v-model="form.password" type="password" class="w-full border rounded p-2" />
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="mb-4">
+                <label class="block font-medium mb-1">Confirm Password</label>
+                <input v-model="form.password_confirmation" type="password" class="w-full border rounded p-2" />
+            </div>
+
+            <div class="flex items-center justify-between">
+                <Link :href="route('login')" class="text-sm text-blue-600 hover:underline">Already registered?</Link>
+                <button type="submit" class="bg-blue-600 text-black px-4 py-2 rounded hover:bg-blue-700" :disabled="form.processing">
+                    Register
+                </button>
+            </div>
+        </form>
+    </div>
 </template>
