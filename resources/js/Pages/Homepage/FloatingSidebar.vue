@@ -1,17 +1,17 @@
 <script setup>
 import { ref, computed } from 'vue';
-import { Button } from './ui/button';
+import { Button } from '@/Components/ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from './ui/dropdown-menu';
+} from '@/Components/ui/dropdown-menu';
 import { Scale, Globe, DollarSign } from 'lucide-vue-next';
-import { useLanguage } from './assets/useLanguage';
+import { useLanguage } from '@/Components/assets/useLanguage';
 
 const props = defineProps({
-  compareProperties: { type: Set, required: true },
+  compareProperties: { type: [Set, Array], required: true },
   allProperties: { type: Array, required: true },
 });
 
