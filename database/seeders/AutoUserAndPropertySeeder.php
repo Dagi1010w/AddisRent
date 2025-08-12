@@ -28,6 +28,8 @@ class AutoUserAndPropertySeeder extends Seeder
             'location_subcity' => $faker->randomElement(['Bole', 'Yeka', 'Kirkos', 'Arada', 'Lideta']),
             'location_specific_area' => $faker->streetName(),
                 'type' => 'person',
+
+                'preference' => $faker->randomElement(['tenant', 'buyer', 'seller', 'lessor']),
             ]);
 
             PersonProfile::create([
@@ -48,6 +50,7 @@ class AutoUserAndPropertySeeder extends Seeder
                 'location_subcity' => $faker->city(),
                 'location_specific_area' => $faker->streetName(),
                 'type' => 'company',
+                'preference' => $faker->randomElement(['tenant', 'buyer', 'seller', 'lessor']),
             ]);
 
             CompanyProfile::create([
