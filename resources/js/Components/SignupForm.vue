@@ -84,7 +84,7 @@ const inputBorderClasses = (hasError) => hasError ? 'border-red-500' : 'border-[
 
   <!-- Form View -->
   <div v-else v-motion-fade-in :class="['w-full max-w-md mx-auto', { 'font-amharic': language === 'am' }]">
-    <form ref="formElement" @submit.prevent="handleSubmit" class="space-y-6">
+    <form ref="formElement" @submit.prevent="submit" class="space-y-6">
 
       <!-- Role Selection -->
       <div v-motion-fade-in :delay="100">
